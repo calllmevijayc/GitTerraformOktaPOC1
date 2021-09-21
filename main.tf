@@ -15,13 +15,20 @@
        api_token = "00PYS6PZoOnXNh0d83MBaGpKMhcLc9caBZJRKuG-wM"
      }
 	 resource "okta_group" "example" {
-       name        = "Example"
-       description = "My Example Group"
+       name        = "Terraform"
+       description = "My Terraform Group"
      }
-
-      #  in the test example resource that does nothing.
-     #resource "null_resource" "example" {
-      # triggers = {
-       #  value = "A example resource that does nothing!"
-       #}
-     #}
+	 resource "okta_user" "example" {
+	  first_name         = "vijay"
+	  last_name          = "kumar"
+	  login              = "vijay.kumar@example.com"
+	  email              = "vijay.kumar@example.com"
+	   
+	}
+	 resource "okta_policy_password" "example" {
+	  name                   = "terraform"
+	  status                 = "ACTIVE"
+	  description            = "terraform policy"
+	  password_history_count = 4
+	  
+	}
